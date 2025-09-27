@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Entra Graph Remediation Toolkit
 
 Modular PowerShell scripts for automating common Microsoft Entra ID remediation tasks using the [Microsoft Graph PowerShell SDK](https://learn.microsoft.com/en-us/powershell/microsoftgraph/overview).  
@@ -47,3 +48,7 @@ Each script is modular, environment-agnostic, and designed to demonstrate:
 ## Usage Examples
 -    .\Revoke-Sessions.ps1 -Users johndoe@contoso.com
 -    .\Remove-Authenticator.ps1 -Users janedoe@fabrikam.com
+=======
+# Security-Automation-Cloud-Portfolio
+This is my life's work...
+>>>>>>> f2db618d18aa61a39b0052e064783996880ec16b
