@@ -1,0 +1,37 @@
+```yaml
+name: Validate Bicep (Resource Group Scope)
+
+on:
+push:
+ branches: [ main ]
+pull_request:
+ branches: [ main ]
+workflow_dispatch:
+
+jobs:
+validate:
+ runs-on: ubuntu-latest
+
+ steps:
+   - name: Checkout repo
+     uses: actions/checkout@v4
+
+   - name: Install Azure CLI
+     uses: azure/cli@v2
+     with:
+       azcliversion: 2.62.0
+
+   - name: Install Bicep
+     run: az bicep install
+
+   - name: Validate syntax
+     run: az bicep build --file main.bicep
+
+   - name: What-If Deployment
+     env:
+       AZURE_SUBSCRIPTION_ID: ${{ secrets.AZ_SUBSCRIPTION_ID }}
+       AZURE_RG: ${{ secrets.AZ_RESOURCE_GROUP }}
+     run: |
+       az deployment group what-if `
+         --resource-group $env:AZURE_RG `
+         --template-file main.bicep
