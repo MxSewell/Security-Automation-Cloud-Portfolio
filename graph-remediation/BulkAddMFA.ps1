@@ -8,8 +8,8 @@ Import-Module Microsoft.Graph
 # Connect to Microsoft Graph
 Connect-MgGraph
 
-# ===Stwp 1: Create and read the CSV
-$rows = Import-Csv "C:\Users\msewell\OneDrive - Phoebe Health\Documents\VS Code\BulkMFAUsers.csv"
+# ===Step 1: Create and read the CSV
+$rows = Import-Csv "C:\Path\BulkMFAUsers.csv"
 $rows
 $rows | Get-Member
 
@@ -36,7 +36,7 @@ foreach ($r in $rows) {
 
 # =====Loop the CSV + add logging=====
 $WhatIf = $false
-$LogPath = "C:\Users\msewell\OneDrive - Phoebe Health\Documents\VS Code\PhoneMethodResults.csv"
+$LogPath = "C:\Path\PhoneMethodResults.csv"
 $report = @()
 
 foreach ($r in $rows) {
